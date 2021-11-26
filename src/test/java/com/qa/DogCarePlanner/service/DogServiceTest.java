@@ -1,7 +1,6 @@
 package com.qa.DogCarePlanner.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mockitoSession;
 
 import java.util.ArrayList;
 import java.util.List;

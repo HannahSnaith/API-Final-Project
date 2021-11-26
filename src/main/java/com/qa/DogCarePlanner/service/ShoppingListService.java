@@ -2,8 +2,6 @@ package com.qa.DogCarePlanner.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,18 +19,12 @@ public class ShoppingListService {
 		this.repo = repo;
 	}
 	
-	public void addItem(ShoppingList item) {
-        repo.save(item);
+	public ShoppingList addItem(ShoppingList item) {
+		  return this.repo.save(item);
     }
 
     public List<ShoppingList> readAll() {
     	  return repo.findAll();
-    }
-
-    public List<ShoppingList> findByItem(String item) {
-    	return readAll().stream()
-    			.filter(user -> user.getItem().equals(item))
-    			.collect(Collectors.toList());
     }
     
     public ShoppingList readById(long id) {
