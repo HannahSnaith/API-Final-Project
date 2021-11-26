@@ -27,12 +27,9 @@ public class ShoppingListService {
     	  return repo.findAll();
     }
     
-    public ShoppingList readById(long id) {
-    	Optional<ShoppingList> option = repo.findById(id);
-    	if(option.isPresent()) {
-    		return option.get();
-    	}
-    	return null;
+    public ShoppingList readById(Long id) {
+        Optional<ShoppingList> ShoppingList = this.repo.findById(id);
+        return ShoppingList.get();
     }
     	    	    
     public ShoppingList updateItem(Long id, ShoppingList newItem) {

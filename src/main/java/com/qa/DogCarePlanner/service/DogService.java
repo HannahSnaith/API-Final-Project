@@ -26,15 +26,12 @@ public class DogService {
     public List<Dog> readAll() {
     	  return repo.findAll();
     }
-    
-    public Dog readById(Long id) {
-    	Optional<Dog> option = repo.findById(id);
-    	if(option.isPresent()) {
-    		return option.get();
-    	}
-    	return null;
-    }
     	    	    
+    public Dog readById(Long id) {
+        Optional<Dog> dog = this.repo.findById(id);
+        return dog.get();
+    }
+    
     public Dog updateDog(Long id, Dog newDog) {
        Optional<Dog> existingOptional = this.repo.findById(id);
         Dog existing = existingOptional.get();
