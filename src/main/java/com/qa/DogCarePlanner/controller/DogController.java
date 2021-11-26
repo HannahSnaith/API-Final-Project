@@ -26,7 +26,7 @@ public class DogController {
     }
 
     @PostMapping("/createDog")
-    public String create(@RequestBody Dog dog) {
+    public String createDog(@RequestBody Dog dog) {
     	service.addDog(dog);
         return "Dog Added";
     }
@@ -37,7 +37,7 @@ public class DogController {
     }
 
     @PostMapping("/updateDog/{id}")
-    public String update(@PathVariable long id, @RequestBody Dog dog) {
+    public String updateDog(@PathVariable long id, @RequestBody Dog dog) {
         service.removeDog(id);
         dog.setId(id);
         service.addDog(dog);
@@ -51,7 +51,7 @@ public class DogController {
     }
     
     @GetMapping("/readAllDogs")
-    public List<Dog> read()  {
+    public List<Dog> readAll()  {
     	return service.readAll();
     }
 }
